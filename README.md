@@ -49,3 +49,20 @@ Map<String, dynamic> retorno = json.decode(response.body);
     String localidade = retorno["localidade"];
 ```
 
+# Consumo de API HTTP usando o Future
+
+Antes do "Widget Build" iniciar um Map do Tipo Future, que sinalizar que o programa recebera dados futuros.
+```
+ Future<Map> _recuperarPreco() async {
+    String url = "https://blockchain.info/ticker";
+    http.Response response = await http.get(url);
+    return json.decode( response.body );
+  }
+  
+```
+Após isso, dentro do Widget Build retornar FutureBuilder e usar os dois parametros obrigatorios: <span style="color:#FF5733;">future</span>, que deve adicionar o nome da função que esta o Future. O Builder tem que ser passado uma função (pode ser anonima), passando o context e o snapshot, o snapshot vai ser usado para manipular os dados, utilizando um Switch para controlar os tempos.
+
+```
+future: _recuperarPreco(),
+builder: (context, snapshot){}
+```
