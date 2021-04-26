@@ -63,6 +63,8 @@ Antes do "Widget Build" iniciar um Map do Tipo Future, que sinalizar que o progr
 Após isso, dentro do Widget Build retornar FutureBuilder e usar os dois parametros obrigatorios: <span style="color:#FF5733;">future</span>, que deve adicionar o nome da função que esta o Future. O Builder tem que ser passado uma função (pode ser anonima), passando o context e o snapshot, o snapshot vai ser usado para manipular os dados, utilizando um Switch para controlar os tempos.
 
 ```
+return FutureBuilder<Map>(
 future: _recuperarPreco(),
 builder: (context, snapshot){}
+);
 ```
